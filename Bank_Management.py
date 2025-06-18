@@ -44,9 +44,9 @@ while len(mobile)!=10:
 gender=input("Enter you gender M/F/B: ")
 balance=int(input("Enter the initial ammount: "))
 b1=Bank(name,acc_num,balance,mobile,gender)
-a=str(input("Enter your requirement(Withdraw/Deposit/Check Balance/Exit): "))
-while a!="Stop":
-    if a== "Withdraw":
+a=str(input("Enter your requirement(Withdraw/Deposit/Check Balance/Exit): ")).lower()
+while a:
+    if a== "withdraw":
         amm=int(input("Enter the ammount to be withdrawl: "))
         s=b1.withdraw(amm)
         if s==0:
@@ -54,17 +54,14 @@ while a!="Stop":
         else:
             print("Please Try again")
         a=str(input("Enter your requirement(Withdraw/Deposit/Check Balance/Exit): "))
-    elif a=="Deposit":
+    elif a=="deposit":
         amm=int(input("Enter the ammount to be deposited: "))
         b1.deposit(amm)
         b1.display()
         a=str(input("Enter your requirement(Withdraw/Deposit/Check Balance/Exit): "))
-    elif a=="Check Balance":
+    elif a=="check balance":
         b1.display()
         a=str(input("Enter your requirement(Withdraw/Deposit/Check Balance/Exit): "))
-    elif a=="Exit":
+    elif a=="exit":
         print("\nThankyou! Have a nice day ",name)
         break
-    else:
-        print("\n This is case sensitive please enter exact option with correct cases!! ")
-        a=str(input("Enter your requirement(Withdraw/Deposit/Check Balance/Exit): "))
